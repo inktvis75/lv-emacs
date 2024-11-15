@@ -1,15 +1,13 @@
 ;; Shell
 (use-package exec-path-from-shell
   :straight t
-)
-
-;; ZSH Shell
-(setq-default shell-file-name "/opt/homebrew/bin/zsh")
-(setq-default explicit-shell-file-name "/opt/homebrew/bin/zsh")
-(when (memq window-system '(mac ns x))
+  :config
+  (setq-default shell-file-name "/opt/homebrew/bin/zsh")
+  (setq-default explicit-shell-file-name "/opt/homebrew/bin/zsh")
+  (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize)
+  )
 )
-
 
 (use-package vterm
   :init
