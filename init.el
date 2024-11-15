@@ -1,7 +1,7 @@
 ;;; init.el --- LinVirt Emacs config -*- lexical-binding: t; -*-
 
-(defvar user-full-name "Frederik Vos")
-(defvar user-mail-address "frederik.vos@linvirt.com")
+(defvar user-full-name "Full Username")
+(defvar user-mail-address "username@gmail.com")
 
 ;; Modules Dir
 (add-to-list 'load-path (expand-file-name "modules" user-emacs-directory))
@@ -14,7 +14,7 @@
 (require 'lv-core)
 (require 'lv-packages)
 (require 'lv-theme)
-(require 'lv-evil)
+;; (require 'lv-evil)
 (require 'lv-shell)
 (require 'lv-spell)
 (require 'lv-complete)
@@ -27,4 +27,7 @@
 (require 'lv-magit)
 (require 'lv-project)
 (require 'lv-lilypond)
+(require 'lv-whichkey)
+(require 'lv-wanderlust)
 (require 'lv-dash)
+
