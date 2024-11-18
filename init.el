@@ -1,7 +1,7 @@
 ;;; init.el --- LinVirt Emacs config -*- lexical-binding: t; -*-
 
-(defvar user-full-name "Full Username")
-(defvar user-mail-address "username@gmail.com")
+(defvar user-full-name "Frederik Vos")
+(defvar user-mail-address "frederik.vos@linvirt.com")
 
 ;; Modules Dir
 (add-to-list 'load-path (expand-file-name "modules" user-emacs-directory))

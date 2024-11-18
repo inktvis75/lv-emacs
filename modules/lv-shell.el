@@ -2,9 +2,13 @@
 (use-package exec-path-from-shell
   :straight t
   :config
-  (setq-default shell-file-name "/opt/homebrew/bin/zsh")
-  (setq-default explicit-shell-file-name "/opt/homebrew/bin/zsh")
+  (setq-default shell-file-name "/bin/bash")
+  (setq-default explicit-shell-file-name "/bin/bash")
+  :init
   (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)
+  )
+  (when (daemonp)
   (exec-path-from-shell-initialize)
   )
 )
