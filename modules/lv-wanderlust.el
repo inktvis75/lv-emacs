@@ -4,7 +4,7 @@
   (autoload 'wl "wl" "Wanderlust" t)
   (autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
   (autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
-  (setq wl-message-id-domain "frederik.vos@linvirt.com")
+  (setq wl-message-id-domain "user@gmail.com")
 )
 
 ;; UTF-8
@@ -18,7 +18,7 @@
 (setq wl-smtp-connection-type   'starttls)
 (setq wl-smtp-posting-port      587)        
 (setq wl-smtp-authenticate-type "plain")           
-(setq wl-smtp-posting-user      "frederik.vos@linvirt.com")
+(setq wl-smtp-posting-user      "user@gmail.com")
 (setq wl-smtp-posting-server    "smtp.gmail.com")
 (setq wl-local-domain           "linvirt.com")
 (setq wl-message-id-domain      "smtp.gmail.com") 
@@ -26,14 +26,14 @@
 (setq wl-default-folder "%inbox")
 (setq wl-draft-folder "%[Gmail]/Drafts")
 (setq wl-trash-folder "%[Gmail]/Trash")
-(setq wl-from "Frederik Vos <frederik.vos@linvirt.com>")  
+(setq wl-from "Full Username <user@gmail.com>")  
 (setq wl-fcc-force-as-read t)
 (setq wl-default-spec "%")
 
 ;; IMAP Settings 
 (setq elmo-imap4-use-modified-utf7 t)
 (setq elmo-imap4-default-server "imap.gmail.com")
-(setq elmo-imap4-default-user "frederik.vos@linvirt.com")
+(setq elmo-imap4-default-user "user@gmail.com")
 (setq elmo-imap4-default-authenticate-type 'clear)
 (setq elmo-imap4-default-port '993)
 (setq elmo-imap4-default-stream-type 'ssl)
