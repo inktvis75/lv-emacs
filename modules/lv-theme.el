@@ -1,6 +1,6 @@
 ; Theme
 (straight-use-package 'modus-themes)
-(load-theme 'modus-vivendi-tritanopia :no-confirm)
+(load-theme 'modus-operandi :no-confirm)
 
 (use-package all-the-icons
   :straight t

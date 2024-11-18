@@ -12,13 +12,17 @@
 (setq-default default-tab-width 4)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
+(set-face-bold-p 'bold nil)
+(setq tex-fontify-script nil)
 (electric-pair-mode 1)
 (show-paren-mode 1)
 (global-hl-line-mode 1)
 (setq select-enable-clipboard t)
-(setq-default major-mode 'fundamentals)
+(setq-default major-mode 'text-mode)
 (recentf-mode 1)
 (global-auto-revert-mode t)
+(add-hook 'text-mode-hook 'visual-line-mode)
+
 
 ;; Backup
 (setq backup-directory-alist `(("." . "~/.saves")))

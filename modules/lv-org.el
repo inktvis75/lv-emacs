@@ -66,6 +66,9 @@
   :after (org ox)
   :straight (:build t))
 
+;;; Markdown
+(eval-after-load "org" '(require 'ox-md nil t))
+
 ;;; Latex Classes
 (with-eval-after-load 'ox-latex
     (add-to-list 'org-latex-classes
@@ -131,6 +134,13 @@
 )
 ;;; Fix underscores
 (setq org-export-with-sub-superscripts nil)
+
+;;; Fontification
+(setq-default org-startup-indented t
+              org-pretty-entities t
+              org-use-sub-superscripts "{}"
+              org-hide-emphasis-markers t
+)
 
 ;;; Syntax Highlighting
 (use-package htmlize)
