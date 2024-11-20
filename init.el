@@ -29,5 +29,6 @@
 (require 'lv-lilypond)
 (require 'lv-whichkey)
 (require 'lv-wanderlust)
+(require 'lv-containers)
 (require 'lv-dash)
 
