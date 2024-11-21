@@ -63,7 +63,7 @@
 )
 
 ;; Indent Guessing and Completion
-(add-to-list 'python-shell-completion-native-disabled-interpreters "ipython")
+(add-to-list 'python-shell-completion-native-disabled-interpreters "python3")
 (setq python-indent-guess-indent-offset t)
 (setq python-indent-guess-indent-offset-verbose nil)
 
