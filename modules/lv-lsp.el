@@ -26,47 +26,6 @@
     :after lsp-mode
     :commands lsp-treemacs-errors-list
 )
-
-(use-package lsp-pyright
-    :straight t
-    :after lsp
-    :hook (python-mode . (lambda () (require 'lsp-pyright) (lsp-deferred)))
-    :init (setq lsp-pyright-python-executable-cmd "python3")
-)
-
-(use-package go-mode
-  :straight t
-  :mode "\\.go\\'"
-  :config
-  (defun db/go-mode-hook()
-    (setq tab-width 2)
-    (add-hook 'before-save-hook 'gofmt-before-save)
-    (set (make-local-variable 'compile-command)
-         "go test"))
-    :config (defun lsp-go-install-save-hooks ()
-            (add-hook 'before-save-hook #'lsp-format-buffer t t)
-            (add-hook 'before-save-hook #'lsp-organize-imports t t))
-            (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-    :hook ((go-mode . lsp-deferred))
-    :hook ((go-mode . db/go-mode-hook))
-    :hook ((go-mode . yas-minor-mode))
-    :hook ((go-mode . subword-mode))
-)
-
-(use-package rust-mode
-  :straight t
-  :mode "\\.rs\\'"
-  :init (setq rust-format-on-save t))
-
-(use-package cargo
-  :straight t
-  :defer t)
-
-(use-package rustic
-  :disabled t
-  :config
-  (setq rustic-format-on-save nil)
-)
 (use-package yaml-mode
   :defer t
   :straight t

@@ -23,6 +23,8 @@
 (require 'lv-pdf)
 (require 'lv-treesitter)
 (require 'lv-lsp)
+(require 'lv-python)
+(require 'lv-helm)
 (require 'lv-snippets)
 (require 'lv-magit)
 (require 'lv-project)
