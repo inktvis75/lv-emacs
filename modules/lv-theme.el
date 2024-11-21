@@ -1,6 +1,8 @@
 ; Theme
 (straight-use-package 'modus-themes)
-(load-theme 'modus-operandi :no-confirm)
+(straight-use-package 'zenburn-theme)
+(straight-use-package 'sublime-themes)
+(load-theme 'spolsky :no-confirm)
 
 (use-package all-the-icons
   :straight t
