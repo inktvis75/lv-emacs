@@ -11,3 +11,13 @@ zlib-devel libpoppler-devel libpoppler-glib-devel \
 glib2-devel pkg-config autoconf automake libvterm-devel \
 llvm rust nodejs pyenv
 ```
+
+## Fedora 41:
+
+```
+sudo dnf install git aspell enchant-aspell python3 python3-pip \
+make automake ansible gcc llvm libpng-devel zlib-ng-compat-devel \
+poppler-glib-devel poppler-devel rust nodejs glib2-devel \
+libvterm-devel pkgconf cmake
+```
+
