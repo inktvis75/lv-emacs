@@ -9,7 +9,6 @@
 (use-package project
   :straight (:type built-in)
   :custom
-  (project-list-file (concat user-cache-directory "projects"))
   (project-vc-extra-root-markers '(".project" "requirements.txt" "package.json"))
   :config
   (add-to-list 'project-switch-commands
