@@ -2,7 +2,7 @@
 (straight-use-package 'modus-themes)
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'sublime-themes)
-(load-theme 'spolsky :no-confirm)
+(load-theme 'ritchie :no-confirm)
 
 (use-package all-the-icons
   :straight t

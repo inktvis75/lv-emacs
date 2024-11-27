@@ -14,7 +14,6 @@
 (require 'lv-core)
 (require 'lv-packages)
 (require 'lv-theme)
-;; (require 'lv-evil)
 (require 'lv-shell)
 (require 'lv-spell)
 (require 'lv-complete)
@@ -30,7 +29,6 @@
 (require 'lv-project)
 (require 'lv-lilypond)
 (require 'lv-whichkey)
-(require 'lv-wanderlust)
 (require 'lv-containers)
 (require 'lv-dash)
 

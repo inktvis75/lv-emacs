@@ -57,12 +57,4 @@
         ("C-x t C-t" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
-(use-package treemacs-projectile
-  :straight t
-  :after treemacs)
-
-(use-package treemacs-evil
-  :after treemacs evil
-  :straight t)
-
 (provide 'lv-treemacs)

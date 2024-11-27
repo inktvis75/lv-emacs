@@ -40,5 +40,4 @@
          ([remap find-tag]         . helm-etags-select)
          ([remap xref-find-definitions] . helm-etags-select))
 )
-
 (provide 'lv-helm)

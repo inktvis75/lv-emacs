@@ -168,5 +168,9 @@
 
 (delete-selection-mode 1)
 
+(use-package treemacs-evil
+  :after treemacs evil
+  :straight t)
+
 (provide 'lv-evil)
 ;;; lv-evil.el ends here
