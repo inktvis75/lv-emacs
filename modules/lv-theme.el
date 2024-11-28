@@ -2,7 +2,8 @@
 (straight-use-package 'modus-themes)
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'sublime-themes)
-(load-theme 'ritchie :no-confirm)
+(straight-use-package 'kuronami-theme)
+(load-theme 'kuronami :no-confirm)
 
 (use-package all-the-icons
   :straight t
