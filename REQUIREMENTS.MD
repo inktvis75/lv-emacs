@@ -20,4 +20,10 @@ make automake ansible gcc llvm libpng-devel zlib-ng-compat-devel \
 poppler-glib-devel poppler-devel rust nodejs glib2-devel \
 libvterm-devel pkgconf cmake
 ```
+## Manjaro / Arch Linux:
 
+```
+sudo pacman -S ispell aspell git python ansible gcc make \
+python-pip nodejs rust llvm cmake autoconf automake pyenv \
+poppler-glib zlib libvterm
+```
