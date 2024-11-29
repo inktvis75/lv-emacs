@@ -9,7 +9,7 @@ Feel free to use and adapt it to suit your own needs!
 # Installation
 
 Install the dependencies as described in the
-[REQUIREMENTS](https://github.com/inktvis75/lv-emacs/blob/main/REQUIREMENTS.MD).
+[REQUIREMENTS](https://github.com/inktvis75/lv-emacs/blob/main/REQUIREMENTS.md).
 
 Clone the repository:
 
