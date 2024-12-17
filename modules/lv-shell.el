@@ -1,19 +1,16 @@
 ;; Shell
+(defun my-exec-path-from-shell-initialize ()
+     (when (memq window-system '(mac ns x))
+       (exec-path-from-shell-initialize)))
 (use-package exec-path-from-shell
   :straight t
-  :config
-  (setq-default shell-file-name "/bin/bash")
-  (setq-default explicit-shell-file-name "/bin/bash")
   :init
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)
-  )
-  (when (daemonp)
-  (exec-path-from-shell-initialize)
-  )
+  (add-hook 'after-init-hook 'my-exec-path-from-shell-initialize)
 )
 
 (use-package vterm
+  :config
+  (blink-cursor-mode 0)
   :init
   (defun my/vterm-here ()
     "Open a terminal buffer in the current window at cwd"
