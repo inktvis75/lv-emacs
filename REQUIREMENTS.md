@@ -2,6 +2,25 @@
 
 Tested on Emacs 29.4
 
+## MacOS
+
+Install dependencies using [homebrew](https://brew.sh/) :
+
+```
+brew install git aspell ispell python3 ansible gcc \
+make automake autoconf libpng zlib poppler \
+libvterm node pyenv llvm rust libgccjit
+```
+
+Install Emacs: 
+
+```
+brew tap d12frosted/emacs-plus
+brew install emacs-plus --with-native-comp
+brew services start d12frosted/emacs-plus/emacs-plus
+```
+
+
 ## SUSE Tumbleweed:
 
 ```

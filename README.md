@@ -1,8 +1,10 @@
 # My Emacs Configuration
 
-This repository contains my personal Emacs configuration, tailored to enhance productivity and streamline workflows. 
-It includes custom settings, keybindings, and additional Emacs Lisp scripts to optimize the editing experience. 
-The configuration is based on the work from [Hadi Timachi](https://codeberg.org/haditim/dotemacs).
+This repository contains my personal Emacs configuration, tailored to enhance
+productivity and streamline workflows.  It includes custom settings,
+keybindings, and additional Emacs Lisp scripts to optimize the editing
+experience.  The configuration is based on the work from [Hadi
+Timachi](https://codeberg.org/haditim/dotemacs).
 
 Feel free to use and adapt it to suit your own needs! 
 
@@ -15,6 +17,13 @@ Clone the repository:
 
 ```
 git clone https://github.com/inktvis75/lv-emacs.git ~/.config/emacs
+```
+
+Add the following lines to your ~/.bashrc:
+
+```
+[ -n "$EAT_SHELL_INTEGRATION_DIR" ] && \
+  source "$EAT_SHELL_INTEGRATION_DIR/bash"
 ```
 
 And start Emacs.
