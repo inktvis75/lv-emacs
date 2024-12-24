@@ -22,6 +22,7 @@ git clone https://github.com/inktvis75/lv-emacs.git ~/.config/emacs
 Add the following lines to your ~/.bashrc:
 
 ```
+export BASH_SILENCE_DEPRECATION_WARNING=1
 [ -n "$EAT_SHELL_INTEGRATION_DIR" ] && \
   source "$EAT_SHELL_INTEGRATION_DIR/bash"
 ```
