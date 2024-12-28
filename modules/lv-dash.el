@@ -1,26 +1,27 @@
-(use-package dashboard
-  :straight (:build t)
-  :ensure t
-  :init
-  (use-package emacs
-      :custom
-      (recentf-max-menu-items 25)
-      (recentf-max-saved-items 25)
-      :config
-      (recentf-mode 1)
-  (dashboard-setup-startup-hook)
-  )
-  :custom
-  (initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
-  (dashboard-banner-logo-title "LinVirt's Vanilla Emacs")
-  (dashboard-startup-banner    'official)
-  (dashboard-center-content    t)
-  (dashboard-show-shortcuts    t)
-  (dashboard-set-navigator     t)
-  (dashboard-set-heading-icons t)
-  (dashboard-set-file-icons    t)
-  (dashboard-set-init-info     t)
-  (dashboard-items '((recents . 5)(projects . 5)))
+(use-package welcome-dashboard 
+    :straight (
+    :host github
+    :repo "konrad1977/welcome-dashboard"
+    :files ("welcome-dashboard.el")
+    :ensure t
+    :after nerd-icons
+    )
+    :demand
+    :init
+    (setq welcome-dashboard-use-nerd-icons t
+          welcome-dashboard-longitude 6.0440 
+          welcome-dashboard-latitude 53.0825
+          welcome-dashboard-path-max-length 75
+          welcome-dashboard-use-fahrenheit nil
+          welcome-dashboard-min-left-padding 10
+          welcome-dashboard-image-file "~/.config/emacs/themes/linvirt-small.png"
+          welcome-dashboard-image-width 200
+          welcome-dashboard-max-number-of-todos 5
+          welcome-dashboard-image-height 169
+          welcome-dashboard-title (concat "Welcome " user-full-name )
+    )
+    :config
+    (welcome-dashboard-create-welcome-hook)
 )
 
 (provide 'lv-dash)

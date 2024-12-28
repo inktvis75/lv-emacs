@@ -19,10 +19,8 @@
 (global-hl-line-mode 1)
 (setq select-enable-clipboard t)
 (setq-default major-mode 'text-mode)
-(recentf-mode 1)
 (global-auto-revert-mode t)
 (add-hook 'text-mode-hook 'visual-line-mode)
-
 
 ;; Backup
 (setq backup-directory-alist `(("." . "~/.saves")))
@@ -32,5 +30,4 @@
      kept-old-versions 2
      version-control t
 )
-
 (provide 'lv-core)

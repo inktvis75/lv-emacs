@@ -11,8 +11,36 @@
   :if (display-graphic-p)
 )
 
+(use-package nerd-icons
+  :straight t
+  :defer t
+  :if (display-graphic-p)
+)
+
+(use-package nerd-icons-ibuffer
+  :straight t
+  :defer t
+  :if (display-graphic-p)
+)
+
+(use-package treemacs-nerd-icons
+  :after treemacs
+  :functions treemacs-load-theme
+  :straight t
+  :defer t
+  :if (display-graphic-p)
+  :custom-face
+  (treemacs-nerd-icons-root-face ((t (:inherit nerd-icons- :height 1.3))))
+  (treemacs-nerd-icons-file-face ((t (:inherit treemacs-file-face :height 1.0))))
+  :config
+  (treemacs-load-theme "nerd-icons")
+)
+
 (use-package nerd-icons-dired
-    :straight (:host github :repo "rainstormstudio/nerd-icons-dired" :files ("*.el"))
+    :straight (
+        :host github 
+        :repo "rainstormstudio/nerd-icons-dired" :files ("*.el")
+    )
     :hook
     (dired-mode . nerd-icons-dired-mode)
 )
