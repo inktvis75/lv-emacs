@@ -49,14 +49,18 @@
 (use-package solaire-mode
   :if (display-graphic-p)
   :straight t
-  :init (solaire-global-mode +1)
+  :demand t
+  :config
+  (solaire-global-mode +1)
 )
 
 ; Automatic Resizing Windows
 (use-package golden-ratio
   :if (display-graphic-p)
   :straight t
-  :init (golden-ratio-mode 1)
+  :demand t
+  :config
+  (golden-ratio-mode 1)
 )
 
 (provide 'lv-theme)
