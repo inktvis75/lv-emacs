@@ -3,7 +3,8 @@
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'sublime-themes)
 (straight-use-package 'kuronami-theme)
-(load-theme 'zenburn :no-confirm)
+(straight-use-package 'ef-themes)
+(load-theme 'ef-owl :no-confirm)
 
 (use-package all-the-icons
   :straight t

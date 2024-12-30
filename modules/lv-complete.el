@@ -22,7 +22,7 @@
           conf-mode
           snippet-mode) . yas-minor-mode-on)
   :config
-  (validate-setq 
+  (setq 
     yas-verbosity 1
     yas-wrap-around-region t
   )
