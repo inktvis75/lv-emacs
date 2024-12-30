@@ -33,4 +33,6 @@ After packages are installed and Emacs is loaded, run `M-x
 nerd-icons-install-fonts`, repeat the procedure for
 `all-the-icons-install-fonts` and restart Emacs for icons to show up.
 
+Run `M-x company-tabnine-install-binary` to enable tabnine.
+
 Use `treesit-install-language-grammar` to install the language support.
