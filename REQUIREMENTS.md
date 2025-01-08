@@ -9,17 +9,15 @@ Install dependencies using [homebrew](https://brew.sh/) :
 ```
 brew install git aspell ispell python3 ansible gcc \
 make automake autoconf libpng zlib poppler \
-libvterm node pyenv llvm rust libgccjit
+libvterm node pyenv llvm rust libgccjit cmake 
 ```
 
 Install Emacs: 
 
 ```
-brew tap d12frosted/emacs-plus
-brew install emacs-plus --with-native-comp
-brew services start d12frosted/emacs-plus/emacs-plus
+brew tap jimeh/emacs-builds
+brew install --cask emacs-app-monthly
 ```
-
 
 ## SUSE Tumbleweed:
 
