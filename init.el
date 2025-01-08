@@ -18,6 +18,8 @@
 (require 'lv-shell)
 (require 'lv-spell)
 (require 'lv-complete)
+(require 'lv-yaml)
+(require 'lv-ansible)
 (require 'lv-treemacs)
 (require 'lv-org)
 (require 'lv-pdf)

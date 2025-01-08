@@ -38,8 +38,10 @@
   :bind (:map flyspell-mode-map ("C-;" . flyspell-correct-wrapper))
 )
 
-(use-package flyspell-correct-ivy
+(use-package helm-flyspell
   :straight t
+  :config
+  (define-key flyspell-mode-map (kbd "C-;") 'helm-flyspell-correct)
   :after flyspell-correct
 )
 
