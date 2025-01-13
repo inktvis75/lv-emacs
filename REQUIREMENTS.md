@@ -12,13 +12,6 @@ make automake autoconf libpng zlib poppler \
 libvterm node pyenv llvm rust libgccjit cmake 
 ```
 
-Install Emacs: 
-
-```
-brew tap jimeh/emacs-builds
-brew install --cask emacs-app-monthly
-```
-
 ## SUSE Tumbleweed:
 
 ```
