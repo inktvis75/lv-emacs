@@ -14,9 +14,8 @@
 )
 
 (use-package poly-ansible
+  :ensure t
   :straight t
-  :defer t
-  :diminish
 )
 
 (use-package company-ansible
