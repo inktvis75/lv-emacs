@@ -12,9 +12,9 @@
 
 ;; Modules
 (require 'lv-core)
-(require 'lv-modeline)
 (require 'lv-packages)
 (require 'lv-theme)
+(require 'lv-modeline)
 (require 'lv-shell)
 (require 'lv-spell)
 (require 'lv-complete)

@@ -1,7 +1,9 @@
 (custom-set-variables
   '(menu-bar-mode nil)
   '(tool-bar-mode nil)
+  '(scroll-bar-mode nil)
   '(initial-buffer-choice t)
+  '(pixel-scroll-precision-mode t)
   '(frame-title-format nil)
   '(cursor-in-non-selected-windows nil)
   '(font-lock-maximum-decoration nil)

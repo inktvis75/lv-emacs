@@ -4,7 +4,7 @@
 (straight-use-package 'sublime-themes)
 (straight-use-package 'kuronami-theme)
 (straight-use-package 'ef-themes)
-(load-theme 'ef-owl :no-confirm)
+(load-theme 'ef-deuteranopia-light :no-confirm)
 
 (use-package all-the-icons
   :straight t
