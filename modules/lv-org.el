@@ -3,6 +3,22 @@
   :hook
   (org-mode . auto-fill-mode)
   (org-mode . (lambda() (display-line-numbers-mode 0)))
+  :custom
+  (org-todo-keywords
+   '((sequence
+      "TODO(t)"
+      "STARTED(s)"
+      "WAITING(w!)" 
+      "|"
+      "DONE(d!)"
+      "OBSOLETE(o)"
+      "CANCELLED(c)")))
+  (org-priority-faces '((?A . "#ff2600")
+                        (?B . "#ff5900")
+                        (?C . "#ff9200")
+                        (?D . "#747474")))
+  (org-return-follows-link t)
+  (org-refile-targets '((org-agenda-files :maxlevel . 1)))
   :config
   (setq org-startup-indented t
    org-src-font-natively t
@@ -141,6 +157,18 @@
               org-use-sub-superscripts "{}"
               org-hide-emphasis-markers t
 )
+
+;;; Directories
+(setq org-agenda-files   (list "~/org/")
+      org-refile-targets '((org-agenda-files :maxlevel . 5))
+      org-refile-use-outline-path 'file
+      org-log-done 'time
+)
+
+;;; Keybindings
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
 
 ;;; Syntax Highlighting
 (use-package htmlize)
