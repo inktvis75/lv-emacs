@@ -3,7 +3,6 @@
   :hook
   (org-mode . auto-fill-mode)
   (org-mode . (lambda() (display-line-numbers-mode 0)))
-  (org-mode . (lambda() (add-hook 'after-save-hook 'org-subtree-archive-default nil t)))
   :custom
   (org-todo-keywords
    '((sequence
