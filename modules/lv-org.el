@@ -3,6 +3,7 @@
   :hook
   (org-mode . auto-fill-mode)
   (org-mode . (lambda() (display-line-numbers-mode 0)))
+  (org-mode . (lambda() (add-hook 'after-save-hook 'org-subtree-archive-default nil t)))
   :custom
   (org-todo-keywords
    '((sequence
@@ -32,7 +33,11 @@
    org-edit-src-content-indentation 0
    org-src-tab-acts-natively t
    org-src-preserve-indentation t
-  )
+   org-agenda-skip-scheduled-if-done t
+   org-agenda-skip-deadline-if-done t
+   org-agenda-skip-function-global '(org-agenda-skip-entry-if 'todo 'done)
+   org-archive-file-header-format nil)
+   org-archive-location (concat org-directory "/archive.org::datetree/")
 )
 
 (use-package org-download
