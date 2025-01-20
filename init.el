@@ -32,5 +32,6 @@
 (require 'lv-lilypond)
 (require 'lv-whichkey)
 (require 'lv-containers)
+(require 'lv-evil)
 (require 'lv-dash)
 
