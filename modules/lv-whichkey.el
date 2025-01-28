@@ -1,3 +1,5 @@
+;;; Display key-bindings
+
 (use-package which-key
   :ensure t
   :config

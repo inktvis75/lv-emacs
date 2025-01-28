@@ -1,5 +1,5 @@
 (use-package org
-  :straight (:type built-in)
+  :ensure nil
   :hook
   (org-mode . auto-fill-mode)
   (org-mode . (lambda() (display-line-numbers-mode 0)))
@@ -40,6 +40,7 @@
 )
 
 (use-package org-download
+  :ensure t
   :init
   (add-hook 'dired-mode-hook 'org-download-enable)
   :custom
@@ -49,15 +50,8 @@
   (org-download-timestamp "%Y%m%d%H%M%S_")
 )
 
-(use-package pdf-tools
-  :mode
-  ("\\.[pP][dD][fF]\\'" . pdf-view-mode)
-  :config
-  (add-hook 'pdf-view-mode-hook (lambda () (display-line-numbers-mode -1)))
-)
-
 (use-package ox-pandoc
-  :defer t
+  :ensure t
   :when (executable-find "pandoc")
   :after ox
   :init
@@ -70,21 +64,24 @@
 )
 
 (use-package citeproc
+  :ensure t
   :after (org)
   :defer t
-  :straight (:build t))
+)
 
 (use-package org-contrib
+  :ensure t
   :after (org)
   :defer t
-  :straight (:build t)
   :init
   (require 'ox-extra)
-  (ox-extras-activate '(latex-header-blocks ignore-headlines)))
+  (ox-extras-activate '(latex-header-blocks ignore-headlines))
+)
 
 (use-package ox-epub
+  :ensure t
   :after (org ox)
-  :straight (:build t))
+)
 
 ;;; Markdown
 (eval-after-load "org" '(require 'ox-md nil t))
@@ -175,9 +172,12 @@
 (global-set-key (kbd "C-c c") #'org-capture)
 
 ;;; Syntax Highlighting
-(use-package htmlize)
-(setq org-html-postamble nil)
-(setq org-src-window-setup 'current-window)
+(use-package htmlize
+  :ensure t 
+  :config
+  (setq org-html-postamble nil)
+  (setq org-src-window-setup 'current-window)
+)
 
 ;;; Babel
 (org-babel-do-load-languages
@@ -185,7 +185,7 @@
  '((python . t)
    (shell . t)
    (emacs-lisp . t)
-   )
+  )
 )
 
 (provide 'lv-org)

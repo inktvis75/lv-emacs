@@ -1,13 +1,11 @@
-(use-package dired-subtree
-  :ensure t
-  :bind (:map dired-mode-map ("i" . 'dired-subtree-toggle))
-  :bind (:map dired-mode-map ("I" . 'dired-subtree-remove)))
+;;; Project Management
 
-(use-package dirtree
-  :ensure t)
+(use-package xref
+  :ensure t
+)
 
 (use-package project
-  :straight (:type built-in)
+  :ensure nil
   :custom
   (project-vc-extra-root-markers '(".project" "requirements.txt" "package.json"))
   :config

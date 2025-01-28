@@ -1,5 +1,5 @@
 (use-package pdf-tools
-  :straight t
+  :ensure t
   :defer nil
   :commands (pdf-view-mode pdf-tools-install)
   :mode ("\\.[pP][dD][fF]\\'" . pdf-view-mode)
@@ -19,7 +19,7 @@
 
 (use-package pdf-view-restore
   :after pdf-tools
-  :straight t
+  :ensure t
   :config
   :hook (pdf-view-mode . pdf-view-restore-mode)
 )

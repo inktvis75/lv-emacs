@@ -1,5 +1,5 @@
 (use-package dashboard
-  :straight t
+  :ensure t
   :demand t
   :init
   (add-hook 'dashboard-mode-hook (lambda () (setq show-trailing-whitespace nil)))

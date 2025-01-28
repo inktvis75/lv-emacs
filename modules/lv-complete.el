@@ -1,46 +1,37 @@
-(use-package company
+(use-package vertico
   :ensure t
-  :custom
-  (company-idle-delay 0.0)
-  (company-minimum-prefix-length 4)
-  (company-selection-wrap-around t)
-  :hook
-  ((text-mode-hook . company-mode)
-   (prog-mode-hook . company-mode))
+  :hook (after-init . vertico-mode)
 )
 
-(use-package yasnippet
-  :straight t
+(use-package marginalia
   :ensure t
-  :demand t
-  :requires (company)
-  :diminish yas-minor-mode
-  :after (company)
-  :hook
-  ((text-mode
-          prog-mode
-          conf-mode
-          snippet-mode) . yas-minor-mode-on)
+  :hook (after-init . marginalia-mode)
+)
+
+(use-package orderless
+  :ensure t
   :config
-  (setq 
-    yas-verbosity 1
-    yas-wrap-around-region t
-  )
-  (yas-reload-all)
+  (setq completion-styles '(orderless basic))
+  (setq completion-category-defaults nil)
+  (setq completion-category-overrides nil)
 )
 
-(use-package company-tabnine
-  :straight t
-)
-
-(use-package yasnippet-snippets 
-  :straight t
+(use-package corfu
   :ensure t
-  :requires (company-yasnippet company-tabnine)
-)
+  :hook (after-init . global-corfu-mode)
+  :bind (:map corfu-map ("<tab>" . corfu-complete))
+  :config
+  (setq tab-always-indent 'complete)
+  (setq corfu-preview-current nil)
+  (setq corfu-min-width 20)
 
-;; There should be a better way, for now it works:
-(yas-global-mode 1)
-(global-set-key (kbd "C-c y") 'company-yasnippet)
+  (setq corfu-popupinfo-delay '(1.25 . 0.5))
+  (corfu-popupinfo-mode 1) ; shows documentation after `corfu-popupinfo-delay'
+
+  (with-eval-after-load 'savehist
+    (corfu-history-mode 1)
+    (add-to-list 'savehist-additional-variables 'corfu-history)
+  )
+)
 
 (provide 'lv-complete)

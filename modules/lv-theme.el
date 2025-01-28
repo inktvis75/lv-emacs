@@ -1,35 +1,45 @@
-; Theme
-(straight-use-package 'modus-themes)
-(straight-use-package 'zenburn-theme)
-(straight-use-package 'sublime-themes)
-(straight-use-package 'kuronami-theme)
-(straight-use-package 'ef-themes)
-(load-theme 'modus-operandi-tritanopia :no-confirm)
+;;; Theme
 
-(use-package all-the-icons
-  :straight t
-  :defer t
-  :if (display-graphic-p)
+(use-package compat
+  :ensure t
 )
+
+(use-package modus-themes
+  :ensure t
+  :config
+  (load-theme 'modus-operandi-tritanopia :no-confirm)
+)
+
+;;; icons 
 
 (use-package nerd-icons
-  :straight t
-  :defer t
-  :if (display-graphic-p)
+  :ensure t
 )
 
-(use-package nerd-icons-ibuffer
-  :straight t
-  :defer t
-  :if (display-graphic-p)
+(use-package nerd-icons-completion
+  :ensure t
+  :after marginalia
+  :config
+  (add-hook 'marginalia-mode-hook)
+)
+
+(use-package nerd-icons-corfu
+  :ensure t
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters)
+)
+
+(use-package nerd-icons-dired
+  :ensure t
+  :hook
+  (dired-mode . nerd-icons-dired-mode)
 )
 
 (use-package treemacs-nerd-icons
+  :ensure t
   :after treemacs
   :functions treemacs-load-theme
-  :straight t
-  :defer t
-  :if (display-graphic-p)
   :custom-face
   (treemacs-nerd-icons-root-face ((t (:inherit nerd-icons- :height 1.3))))
   (treemacs-nerd-icons-file-face ((t (:inherit treemacs-file-face :height 1.0))))
@@ -37,28 +47,17 @@
   (treemacs-load-theme "nerd-icons")
 )
 
-(use-package nerd-icons-dired
-    :straight (
-        :host github 
-        :repo "rainstormstudio/nerd-icons-dired" :files ("*.el")
-    )
-    :hook
-    (dired-mode . nerd-icons-dired-mode)
-)
-
-; Distinguish Buffers
+;;; Distinguish Buffers
 (use-package solaire-mode
-  :if (display-graphic-p)
-  :straight t
+  :ensure  t
   :demand t
   :config
   (solaire-global-mode +1)
 )
 
-; Automatic Resizing Windows
+;;; Automatic Resizing Windows
 (use-package golden-ratio
-  :if (display-graphic-p)
-  :straight t
+  :ensure t
   :demand t
   :config
   (golden-ratio-mode 1)

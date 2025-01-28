@@ -2,6 +2,7 @@
          (treesit-available-p))
     (progn ; emacs is built with treesit
       (use-package treesit-auto
+        :ensure t
         :demand t
         :custom
         (treesit-auto-install nil)

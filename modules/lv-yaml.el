@@ -1,16 +1,24 @@
+;;; YAML support
+
 (use-package yaml-mode
+  :ensure t
+  :mode ((rx ".yamllint")
+         (rx ".y" (optional "a") "ml" string-end)
+         )
+)
+
+
+(use-package yaml-pro
   :defer t
-  :straight t
-  :custom
-  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+  :ensure t
 )
 
 (use-package outline-yaml
-  :ensure t
-  :straight (outline-yaml
-             :type git
-             :host github
-             :repo "jamescherti/outline-yaml.el")
+  :ensure t (outline-yaml
+    :type git
+    :host github
+    :repo "jamescherti/outline-yaml.el"
+    )
   :hook
   ((yaml-mode . outline-yaml-minor-mode)
    (yaml-ts-mode . outline-yaml-minor-mode))

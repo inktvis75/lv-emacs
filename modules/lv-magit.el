@@ -1,10 +1,15 @@
+(use-package transient
+  :ensure t
+)  
+
 (use-package magit
-  :straight t
+  :ensure t
   :bind (("C-x g" . magit))
+  :after transient
 )
 
 (use-package git-gutter
-  :straight t
+  :ensure t
   :config
   (global-git-gutter-mode +1)
 )

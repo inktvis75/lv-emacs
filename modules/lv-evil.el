@@ -1,5 +1,8 @@
+;;; Evil packages
+
 (use-package evil
-  :straight t
+  :ensure t
+  :demand t
   :diminish undo-tree-mode
   :init
   (setq evil-want-C-u-scroll t
@@ -7,6 +10,7 @@
         evil-shift-width 4)
   :hook (after-init . evil-mode)
   :config
+  (evil-mode 1)
   (with-eval-after-load 'evil-maps 
     (define-key evil-insert-state-map (kbd "C-n") nil)
     (define-key evil-insert-state-map (kbd "C-p") nil))
@@ -17,13 +21,15 @@
 )
 
 (use-package evil-collection
+  :ensure t
   :after evil
   :config
-  (setq evil-collection-company-use-tng nil)
+  (setq evil-collection-mode-list '(dashboard dired ibuffer))
   (evil-collection-init)
 )
 
 (use-package evil-commentary
+  :ensure t
   :after evil
   :diminish
   :config (evil-commentary-mode +1)
@@ -31,7 +37,8 @@
 
 (use-package treemacs-evil
   :after (treemacs evil)
-  :straight t
+  :ensure t
 )
+
 
 (provide 'lv-evil)

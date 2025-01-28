@@ -1,42 +1,47 @@
-(use-package lsp-mode
-    :straight t
-    :after company
-    :custom
-    (gc-cons-threshold 100000000) ;; set per the lsp-doctor recommendation
-    (read-process-output-max (* 1024 1024)) ;; same reason ^
-    (lsp-keymap-prefix "C-c l")
-    :hook (
-           (yaml-mode . lsp)
-           (lsp-mode . lsp-enable-which-key-integration))
-    :commands lsp
-    :init 
-    (setq lsp-auto-guess-root t       
-     lsp-log-io nil
-     lsp-enable-indentation t
-     lsp-enable-imenu t
-     lsp-file-watch-threshold 500
-     lsp-prefer-flymake nil)
+(use-package yasnippet
+  :ensure t
+  :demand t
+  :diminish yas-minor-mode
+  :hook
+  ((text-mode
+          prog-mode
+          conf-mode
+          snippet-mode) . yas-minor-mode-on)
+  :config
+  (setq 
+    yas-verbosity 1
+    yas-wrap-around-region t
+  )
+  (yas-global-mode 1)
+  (global-set-key (kbd "C-c y") 'company-yasnippet)
+  (yas-reload-all)
 )
 
-(use-package lsp-ui
-    :ensure t 
-    :after (lsp-mode)
-    :straight t
-    :hook (lsp-mode . lsp-ui-mode)
-    :commands lsp-ui-mode
+(use-package lsp-bridge
+  :after (yasnippet orderless)
+  :defer 5
+  :ensure (
+    :host github
+    :type git
+    :repo "manateelazycat/lsp-bridge"
+    :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+    :build (:not compile)
+  )
+  :config
+  (setq acm-enable-quick-access t)
+  (define-key acm-mode-map (kbd "C-u") 'acm-select-prev)
+  (define-key acm-mode-map (kbd "C-t") 'acm-select-next)
+  (setq lsp-bridge-enable-signature-help t)
+  (setq lsp-bridge-signature-help-fetch-idle 0.3)
+  (setq lsp-bridge-signature-show-function 'lsp-bridge-signature-show-with-frame)
+  (setq lsp-bridge-signature-show-with-frame-position 'point)
+  (setq lsp-bridge-python-lsp-server "pyright")
+  :init
+  (global-lsp-bridge-mode)
 )
 
-(use-package helm-lsp
-    :straight t
-    :after lsp-mode
-    :commands (helm-lsp-workspace-symbol)
-    :init (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
-)
-
-(use-package lsp-treemacs
-    :straight t
-    :after lsp-mode
-    :commands lsp-treemacs-errors-list
+(use-package yasnippet-snippets
+  :ensure t
 )
 
 (provide 'lv-lsp)

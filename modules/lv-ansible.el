@@ -1,4 +1,7 @@
+;;; Ansible Support
+
 (use-package ansible
+  :ensure t
   :commands ansible-auto-decrypt-encrypt
   :init
   (put 'ansible-vault-password-file 'safe-local-variable #'stringp)
@@ -8,21 +11,17 @@
 )
 
 (use-package jinja2-mode
-  :mode "\\.j2\\'"
+  :ensure t
   :config
+  (define-hostmode poly-yaml-hostmode :mode 'yaml-ts-mode)
   (setq jinja2-enable-indent-on-save nil)
+  :mode 
+  (rx ".j2" string-end)
 )
 
 (use-package poly-ansible
   :ensure t
-  :straight t
-)
-
-(use-package company-ansible
-  :straight t
-  :ensure t
-  :custom
-  (add-to-list 'company-backends 'company-ansible)
+  :config 
 )
 
 (provide 'lv-ansible)

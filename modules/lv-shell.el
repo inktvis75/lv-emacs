@@ -1,17 +1,35 @@
-;; Shell
+;;; Shell
 (setq-default explicit-shell-file-name "/bin/bash")
 
-;; Path Variable
-(use-package exec-path-from-shell
-  :init
-  (exec-path-from-shell-initialize))
-
-;; VTERM
+;;; VTERM
 (use-package vterm
+  :ensure (vterm :post-build
+                 (progn
+                   (setq vterm-always-compile-module t)
+                   (require 'vterm)
+                   ;;print compilation info for elpaca
+                   (with-current-buffer (get-buffer-create vterm-install-buffer-name)
+                     (goto-char (point-min))
+                     (while (not (eobp))
+                       (message "%S"
+                                (buffer-substring (line-beginning-position)
+                                                  (line-end-position)))
+                       (forward-line)))
+                   (when-let ((so (expand-file-name "./vterm-module.so"))
+                              ((file-exists-p so)))
+                     (make-symbolic-link
+                      so (expand-file-name (file-name-nondirectory so)
+                                           "../../builds/vterm")
+                      'ok-if-already-exists)
+                   )
+                 )
+          )
+  :commands (vterm vterm-other-window)
   :config
+  (evil-set-initial-state 'vterm-mode 'emacs)
   (blink-cursor-mode 0)
   :init
-  (defun my/vterm-here ()
+   (defun my/vterm-here ()
     "Open a terminal buffer in the current window at cwd"
     (interactive)
     (vterm (concat "*vterm-" (string (random 255)) "*")))
@@ -20,7 +38,9 @@
     "Open a terminal buffer in the current window at project root"
     (interactive)
     (let ((default-directory (project-root (project-current t))))
-      (vterm "*vterm*"))))
+      (vterm "*vterm*"))
+  )
+)
 
 (use-package multi-vterm
   :init
@@ -28,9 +48,9 @@
   :requires vterm
 )
 
-;; ESHELL
+;;; ESHELL
 (use-package eshell
-  :straight (:type built-in)
+  :ensure nil
   :init
   (defun my/eshell-here ()
     "Open an eshell buffer in the current window at cwd"
@@ -41,41 +61,10 @@
     "Open an eshell buffer in the current window at project root"
     (interactive)
     (let ((default-directory (project-root (project-current t))))
-      (eshell))))
+      (eshell)))
+)
 
-(use-package capf-autosuggest
-  :hook
-  ('comint-mode-hook #'capf-autosuggest-mode)
-  ('eshell-mode-hook #'capf-autosuggest-mode))
-
-(use-package fish-mode)
-
-;; hide line numbers and don't truncate lines
-(dolist (mode '(term-mode-hook
-                vterm-mode-hook
-                shell-mode-hook
-                eshell-mode-hook
-                comint-mode-hook
-                dape-repl-mode-hook
-                inferior-python-mode-hook
-                image-mode-hook))
-  (add-hook mode (lambda ()
-                   (display-line-numbers-mode 0)
-                   (visual-line-mode +1))))
-
-(add-to-list 'term-file-aliases '("foot" . "xterm"))
-
-(straight-use-package
- '(eat :type git
-       :host codeberg
-       :repo "akib/emacs-eat"
-       :files ("*.el" ("term" "term/*.el") "*.texi"
-               "*.ti" ("terminfo/e" "terminfo/e/*")
-               ("terminfo/65" "terminfo/65/*")
-               ("integration" "integration/*")
-               (:exclude ".dir-locals.el" "*-tests.el"))))
-
-;; Shortcuts
+;;; Shortcuts
 (global-set-key (kbd "C-c t c") 'vterm)
 (global-set-key (kbd "C-c t v") 'multi-vterm)
 (global-set-key (kbd "C-c t n") 'multi-vterm-next)
