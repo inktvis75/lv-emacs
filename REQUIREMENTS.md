@@ -32,6 +32,7 @@ make automake ansible gcc llvm libpng-devel zlib-ng-compat-devel \
 poppler-glib-devel poppler-devel rust nodejs glib2-devel \
 libvterm-devel pkgconf cmake enchant
 ```
+
 ## Manjaro / Arch Linux:
 
 ```
@@ -41,7 +42,9 @@ poppler-glib zlib libvterm enchant
 ```
 
 ## Python dependencies:
+
+```
 pip3 install epc orjson sexpdata six setuptools paramiko \
 rapidfuzz watchdog packaging ruff-lsp pyright yamllint \
 pyenchant
-
+```
