@@ -10,8 +10,13 @@
   (load-theme 'modus-operandi-tritanopia :no-confirm)
 )
 
+;;; Highlight Indent
+(use-package highlight-indent-guides
+ :ensure t
+ :hook (prog-mode . highlight-indent-guides-mode)
+)
 
-;;; Icons
+;;; icons 
 
 (use-package nerd-icons
   :ensure t

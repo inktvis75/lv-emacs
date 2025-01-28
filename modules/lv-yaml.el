@@ -5,23 +5,15 @@
   :mode ((rx ".yamllint")
          (rx ".y" (optional "a") "ml" string-end)
          )
+  :init 
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 )
-
 
 (use-package yaml-pro
-  :defer t
   :ensure t
+  :hook (yaml-mode-hook . yaml-pro-ts-mode)
+  
 )
 
-(use-package outline-yaml
-  :ensure t (outline-yaml
-    :type git
-    :host github
-    :repo "jamescherti/outline-yaml.el"
-    )
-  :hook
-  ((yaml-mode . outline-yaml-minor-mode)
-   (yaml-ts-mode . outline-yaml-minor-mode))
-)
 
 (provide 'lv-yaml)

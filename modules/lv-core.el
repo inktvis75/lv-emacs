@@ -1,13 +1,13 @@
 ;;; lv-core.el --- Module providing core functionalities in my Emacs config
 
-;; Some Defaults
+;;; Some Defaults
 (setq undo-limit 100000)
 (setq gc-cons-threshold most-positive-fixnum)
 (add-hook 'emacs-startup-hook
           (lambda ()
             (setq gc-cons-threshold (* 1024 1024 100))))
 
-;; Editing Defaults
+;;; Editing Defaults
 (setq tab-always-indent nil)
 (setq-default default-tab-width 4)
 (setq-default tab-width 4)
@@ -24,8 +24,7 @@
 (setq ring-bell-function 'ignore)
 (tooltip-mode 1)
 
-;; Remove trailing whitespace except current line.
-;; https://stackoverflow.com/a/35781486/1747877
+;;; Remove trailing whitespace except current line.
 (defun my/delete-trailing-whitespace-except-current-line ()
   "Delete trailing whitespace in the whole buffer, except on the current line.
   The current line exception is because we do want to remove any whitespace
@@ -37,7 +36,7 @@
     (delete-trailing-whitespace (point-min) (line-beginning-position))
     (delete-trailing-whitespace (line-end-position) (point-max))))
 
-;; Backup
+;;; Backup
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
 (setq delete-old-versions t
@@ -45,4 +44,5 @@
      kept-old-versions 2
      version-control t
 )
+
 (provide 'lv-core)

@@ -2,12 +2,41 @@
 
 (use-package ansible
   :ensure t
-  :commands ansible-auto-decrypt-encrypt
+  :after yaml-mode
   :init
-  (put 'ansible-vault-password-file 'safe-local-variable #'stringp)
+  (prog-mode)
+  (yaml-ts-mode)
+  (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
+  :custom
+  (ansible-vault-password-file "~/.ansible-vault-pwd")
+
+  :bind
+  (:map ansible-key-map
+        ("C-c v" . rr/set-ansible-vault-mimipass-pwd)
+        ("C-c C-d" . ansible-doc))
+
   :config
-  (setq ansible-section-face 'font-lock-variable-name-face
-        ansible-task-label-face 'font-lock-doc-face)
+  (add-hook 'ansible-hook 'ansible-auto-decrypt-encrypt)
+  (defun rr/write-string (string file)
+    (with-temp-buffer
+      (insert string)
+      (write-region (point-min) (point-max) file)))
+
+  (defun rr/set-ansible-vault-mimipass-pwd ()
+    "Choose which mimipass password to be used for ansible vault."
+    (interactive)
+    (rr/write-string (format "#!/bin/bash\nmimipass get %s"
+                             (rr/helm-mimipass))
+                     ansible-vault-password-file)
+    (chmod ansible-vault-password-file
+           (string-to-number "700" 8)))
+)
+
+
+(use-package ansible-doc
+  :ensure t
+  :config
+  (add-hook 'yaml-mode-hook #'ansible-doc-mode)
 )
 
 (use-package jinja2-mode
