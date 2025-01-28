@@ -16,14 +16,6 @@
   (setq completion-category-overrides '((eglot (styles . (orderless flex)))))
 )
 
-(use-package cape
-  :ensure t
-  :init 
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-  (add-to-list 'completion-at-point-functions #'cape-file)
-  (add-to-list 'completion-at-point-functions #'cape-elisp-block)
-  (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
-)
 (use-package corfu
   :ensure t
   :custom
@@ -57,12 +49,15 @@
   :ensure t
 )
 
-(use-package eglot
-  :ensure nil
-  :defer t
-  :config
-  (setq read-process-output-max (* 1024 1024))
-  (push :documentHighlightProvider eglot-ignored-server-capabilities)
+(use-package lsp-bridge
+  :ensure '(
+    :type git 
+    :host github 
+    :repo "manateelazycat/lsp-bridge"
+    :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+    :build (:not compile))
+  :init
+  (global-lsp-bridge-mode)
 )
 
 ;;; Highlight Indent

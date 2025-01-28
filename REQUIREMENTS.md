@@ -11,7 +11,8 @@ brew install git aspell ispell python3 ansible gcc \
 make automake autoconf libpng zlib poppler \
 libvterm node pyenv llvm rust libgccjit cmake \
 basedpyright pyright yaml-language-server \
-ansible-language-server enchant
+ansible-language-server enchant python-lsp-server \
+bash-language-server
 ```
 
 ## SUSE Tumbleweed:
