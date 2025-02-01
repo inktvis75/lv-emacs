@@ -39,7 +39,10 @@ libvterm-devel pkgconf cmake enchant
 ```
 sudo pacman -S ispell aspell git python ansible gcc make \
 python-pip nodejs rust llvm cmake autoconf automake pyenv \
-poppler-glib zlib libvterm enchant
+poppler-glib zlib-ng zlib-ng-compat python-ruff \
+python-rapidfuzz libvterm enchant pyright yamllint pandoc \
+python-pyenchant python-packaging python-orjson texlive \
+python-pygments 
 ```
 
 ## Python dependencies:
