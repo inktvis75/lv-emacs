@@ -12,7 +12,8 @@ make automake autoconf libpng zlib poppler \
 libvterm node pyenv llvm rust libgccjit cmake \
 basedpyright pyright yaml-language-server \
 ansible-language-server enchant python-lsp-server \
-bash-language-server
+bash-language-server font-jetbrains-mono \
+font-jetbrains-mono-nerd-font
 ```
 
 ## SUSE Tumbleweed:
@@ -39,10 +40,7 @@ libvterm-devel pkgconf cmake enchant
 ```
 sudo pacman -S ispell aspell git python ansible gcc make \
 python-pip nodejs rust llvm cmake autoconf automake pyenv \
-poppler-glib zlib-ng zlib-ng-compat python-ruff \
-python-rapidfuzz libvterm enchant pyright yamllint pandoc \
-python-pyenchant python-packaging python-orjson texlive \
-python-pygments 
+poppler-glib zlib libvterm enchant
 ```
 
 ## Python dependencies:

@@ -1,5 +1,9 @@
 ;;; Theme
 
+(use-package emacs
+  :init (add-to-list 'default-frame-alist '(font . "JetBrains Mono-13"))
+)
+
 (use-package compat
   :ensure t
 )
