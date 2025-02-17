@@ -38,6 +38,9 @@
   )
 )
 
+;; Lisp
+(setq inferior-lisp-program "/opt/homebrew/bin/sbcl")
+
 ;;; Modules Dir
 (add-to-list 'load-path (expand-file-name "modules" user-emacs-directory))
 
@@ -58,9 +61,10 @@
 (require 'lv-python)
 (require 'lv-magit)
 (require 'lv-project)
+(require 'lv-slime)
 (require 'lv-lilypond)
 (require 'lv-whichkey)
 (require 'lv-containers)
-(require 'lv-evil)
+;;; (require 'lv-evil)
 (require 'lv-dash)
 
