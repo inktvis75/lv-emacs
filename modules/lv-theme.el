@@ -4,10 +4,6 @@
   :init (add-to-list 'default-frame-alist '(font . "JetBrains Mono-13"))
 )
 
-(use-package compat
-  :ensure t
-)
-
 (use-package modus-themes
   :ensure t
   :config

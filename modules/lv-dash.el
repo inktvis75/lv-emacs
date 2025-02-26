@@ -10,6 +10,8 @@
   (dashboard-set-file-icons t)
   (dashboard-set-navigator t)
   :config
+  (add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
+  (add-hook 'elpaca-after-init-hook #'dashboard-initialize)
   (dashboard-setup-startup-hook))
 
 (provide 'lv-dash)
