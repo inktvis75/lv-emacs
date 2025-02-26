@@ -1,22 +1,3 @@
-(if (and (fboundp 'treesit-available-p)
-         (treesit-available-p))
-    (progn ; emacs is built with treesit
-      (use-package treesit-auto
-        :ensure t
-        :demand t
-        :custom
-        (treesit-auto-install nil)
-        :config
-        (delete 'c treesit-auto-langs)  ; c-ts-mode crashes from time to time
-        (global-treesit-auto-mode))
-      (setq treesit-font-lock-level 4))
-  (use-package tree-sitter
-    :init
-    (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
-    (global-tree-sitter-mode))
-  (use-package tree-sitter-langs)
-)
-
 (setq treesit-language-source-alist
    '((bash "https://github.com/tree-sitter/tree-sitter-bash")
      (cmake "https://github.com/uyha/tree-sitter-cmake")
@@ -33,6 +14,17 @@
      (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
      (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
      (yaml "https://github.com/ikatyang/tree-sitter-yaml"))
+)
+
+(use-package treesit-auto
+    :ensure t
+    :init
+    :demand t
+    :custom
+    (treesit-auto-install 'prompt)
+    :config
+    (treesit-auto-add-to-auto-mode-alist 'all)
+    (global-treesit-auto-mode)
 )
 
 (provide 'lv-treesitter)
