@@ -7,6 +7,8 @@
 
 (use-package kubed
   :ensure t
+  :config
+  (setq kubed-kubectl-program "/opt/homebrew/bin/kubectl")
 )
 
 (provide 'lv-containers)

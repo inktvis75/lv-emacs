@@ -5,11 +5,14 @@
 )
 
 (use-package modus-themes
-  :ensure t
-  :config
-  (load-theme 'modus-operandi-tritanopia :no-confirm)
+   :ensure t
 )
 
+(use-package color-theme-sanityinc-tomorrow
+  :ensure t
+  :config
+  (load-theme 'sanityinc-tomorrow-bright)
+)
 
 ;;; Icons
 
