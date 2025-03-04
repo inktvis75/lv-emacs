@@ -40,7 +40,10 @@ libvterm-devel pkgconf cmake enchant
 ```
 sudo pacman -S ispell aspell git python ansible gcc make \
 python-pip nodejs rust llvm cmake autoconf automake pyenv \
-poppler-glib zlib libvterm enchant
+poppler-glib zlib-ng-compat libvterm enchant noto-fonts \
+noto-fonts-emoji noto-fonts-extra ttf-liberation \
+ttf-dejavu ttf-roboto ttf-jetbrains-mono ttf-fira-code \
+ttf-hack adobe-source-code-pro-fonts hunspell hunspell-en_us
 ```
 
 ## Python dependencies:
