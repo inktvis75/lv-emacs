@@ -7,9 +7,10 @@
 
 (use-package kubed
   :ensure t
-  :custom
-  (keymap-global-set "s-k" #'kubed-transient)
-  (keymap-set kubed-prefix-map "k" #'kubed-transient)
+  :init 
+  :bind 
+  ("C-c k" . 'kubed-prefix-map)
+  ("C-c C-k" . 'kubed-transient)
   :config
   (setq kubed-kubectl-program "/opt/homebrew/bin/kubectl")
 )
