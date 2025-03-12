@@ -14,6 +14,11 @@ basedpyright pyright yaml-language-server \
 ansible-language-server enchant python-lsp-server \
 bash-language-server font-jetbrains-mono \
 font-jetbrains-mono-nerd-font
+
+sudo mkdir /usr/local/include
+
+sudo ln -s /opt/homebrew/Cellar/enchant/2.8.2/include/enchant-2 \
+/usr/local/include/enchant-2 
 ```
 
 ## SUSE Tumbleweed:
@@ -40,7 +45,7 @@ libvterm-devel pkgconf cmake enchant
 ```
 sudo pacman -S ispell aspell git python ansible gcc make \
 python-pip nodejs rust llvm cmake autoconf automake pyenv \
-poppler-glib zlib-ng-compat libvterm enchant noto-fonts \
+poppler-glib zlib libvterm enchant noto-fonts texlive \
 noto-fonts-emoji noto-fonts-extra ttf-liberation \
 ttf-dejavu ttf-roboto ttf-jetbrains-mono ttf-fira-code \
 ttf-hack adobe-source-code-pro-fonts hunspell hunspell-en_us
